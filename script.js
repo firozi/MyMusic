@@ -25,9 +25,13 @@ document.querySelectorAll(".card").forEach(card => {
         await main()
     });
 });
+
 async function GetSongs(album) {
-    let a = await fetch(`http://127.0.0.1:5500/spotify/${album}.html`)
+    if(selected_album){
+    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`)
+
     let response = await a.text()
+    console.log("songs from git hub ",response)
     let div = document.createElement("div")
     div.innerHTML = response;
     let as = div.getElementsByTagName("a")
@@ -39,9 +43,11 @@ async function GetSongs(album) {
     }
     return songs
 }
+}
 
 async function GetSongName(album) {
-    let a = await fetch(`http://127.0.0.1:5500/spotify/${album}.html`)
+    if(selected_album){
+    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`)
     let response = await a.text()
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -53,10 +59,14 @@ async function GetSongName(album) {
     }
 
     return songname
+}
 
 }
+
+
 async function GetArtistName(album) {
-    let a = await fetch(`http://127.0.0.1:5500/spotify/${album}.html`)
+    if(selected_album){
+    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`)
     let response = await a.text()
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -67,6 +77,7 @@ async function GetArtistName(album) {
         artistname.push(element.innerText)
     }
     return artistname;
+}
 
 }
 
