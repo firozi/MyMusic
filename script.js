@@ -28,7 +28,7 @@ document.querySelectorAll(".card").forEach(card => {
 
 async function GetSongs(album) {
     if(selected_album){
-    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`)
+    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`).catch(err => alert("having issue"));
 
     let response = await a.text()
     console.log("songs from git hub ",response)
@@ -47,7 +47,7 @@ async function GetSongs(album) {
 
 async function GetSongName(album) {
     if(selected_album){
-    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`)
+    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`).catch(err => alert("having issue"))
     let response = await a.text()
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -66,7 +66,7 @@ async function GetSongName(album) {
 
 async function GetArtistName(album) {
     if(selected_album){
-    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`)
+    let a = await fetch(`https://firozi.github.io/MyMusic/${album}.html`).catch(err => alert("having issue"))
     let response = await a.text()
     let div = document.createElement("div")
     div.innerHTML = response;
